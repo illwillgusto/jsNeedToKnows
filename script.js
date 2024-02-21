@@ -166,4 +166,44 @@ myPromise
 .catch((message) => {
     console.log(message); // this will be executed if the promise is rejected
 });
-    
+
+// Chaining Promises: this can be done to perform a series of asynchronous operations in order.
+const firstMethod = () => {
+    return new Promise((resolve, reject) => {
+        resolve('First method completed');
+    });
+};
+
+const secondMethod = (message) => {
+    return new Promise((resolve, reject) => {
+        resolve(`${message} - Second method completed`);
+    });
+};
+
+firstMethod()
+    .then(secondMethod)
+    .then((message) => console.log(message)) // Logs: First method completed - Second method completed
+    .catch((error) => console.error(error));
+
+/* async and await are used to work with Promises in a more synchronous-looking manner. 
+async is used to declare a function as asynchronous, and await is used to wait for a Promise to be 
+resolved */
+async function asyncFunction() {
+    try {
+        const response = await myBigPromise;
+        console.log(response); // This will log if the promise is resolved.
+    } catch (error) {
+        console.error(error); // This will log if the promise is rejected.
+    }
+}
+
+asyncFunction();
+
+// `Promise.all` is used when you want to wait for multiple promises to be completed.
+const promise1 = Promise.resolve('Promise 1 resolved');
+const promise2 = Promise.resolve('Promise 2 resolved');
+
+Promise.all([promise1, promise2]).then((message) => {
+    console.log(message); // Logs: ['Promise 1 resolved', 'Promise 2 resolved']
+});
+
