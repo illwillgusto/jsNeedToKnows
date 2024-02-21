@@ -127,3 +127,43 @@ console.log(person2.fullName()); // Flynn Fly
 person2.greet2();
 // In methods, `this` refers to the object the method belongs to. 
 
+/* `let` keyword is used to declare block-scoped variables. Variables declared with let are only accessible 
+within the block where they are defined. */
+
+/* 'const' keyword is used to declare block-scoped variables & cannot be re-assigned. */
+
+/* Template literals are denoted by backticks (``), a way to create strings that support 
+interpolation of variables and multi-line strings */ 
+// Example:
+const yourFirstName = "Jerry";
+const yourLastName = "Tom";
+const yourAge = "30";
+
+// Using template literals for string interpolation 
+const greetingMessage = `Hello, my name is ${yourFirstName} ${yourLastName} and I am 
+${age} years old!`;
+
+console.log(greetingMessage);
+
+/* Promises are used for asynchronous programming in JS. They represent the eventual completion or failure.
+Allowing chaining of operations using `.then()` and `.catch()`. */
+
+const myPromise = new Promise((resolve, reject) => {
+    const condition = true; // This is just for demonstration.
+
+    if (condition) {
+        resolve('Promise is resolved successfully.');
+    } else {
+        reject('Promise is rejected.')
+    }
+}); /* a new promise is created with the `new Promise()` constructor which is given a function that 
+takes two arguments, `resolve` and `reject`. */
+
+myPromise
+.then((message) =>{
+    console.log(message); // this will be executed if the promise is resolved.
+})
+.catch((message) => {
+    console.log(message); // this will be executed if the promise is rejected
+});
+    
