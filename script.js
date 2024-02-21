@@ -246,3 +246,81 @@ async function fetchMultipleData() {
 
 fetchMultipleData();
 
+/* Arrow functions are a concise syntax for defining functions. Shorter and `this` retains the value
+of the enclosing lexical context */
+// Basic Example 
+const added = (m, n) => m + n;
+console.log(add(4, 6)); // 10
+
+// Example with `this`
+function Timers() {
+    this.second = 0;
+    setInterval(() => {
+        this.second++;
+        console.log(this.second);
+    }, 1000);
+}
+
+const timers = new Timers();
+
+/* Event delegation - where you attach an event listener to a partner element 
+instead of a individual child element. */
+/* <!DOCTYPE html>
+<html>
+<head>
+    <title>Event Delegation Example</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <!-- More list items can be added dynamically -->
+    </ul>
+
+    <script>
+        // JavaScript
+        document.getElementById('myList').addEventListener('click', function(event) {
+            if (event.target.tagName === 'LI') {
+                alert('You clicked on item: ' + event.target.textContent);
+            }
+        });
+    </script>
+</body>
+</html>
+*/
+
+// map() function & it's purpose 
+/* Used for iterating over arrays and creating a new array by applying a specified function to each element
+of the original array. This method is useful for transforming data. */
+
+/* 
+1. applies a given function to each element of the array, effectively transforming the elements.
+2. it creates and returns a new array containing the results of applying the function to each element.
+3. the function passed to `map()` receives three arguments: the current element, the index of the current element,
+and the array `map()` was called upon.
+4. since `map()` returns a new array, it can be chained with other array methods like `filter()`, and etc. */
+const numbers = [1,2,3,4,5];
+const squaredNumbers = numbers.map(number => number * number);
+
+console.log(squaredNumbers); // Output: [1,4,9,16,25]
+
+// filter() function & it's purpose 
+/* the filter() function is used to create a new array containing elements that pass a certain condition
+defined by a provided function. It allows filtering elements from an array based on specific criteria. */
+const numbers1 = [1,2,3,4,5,6,7,8,9,10];
+
+// we want just the even numbers, so we will use filter()
+const evenNumbers = numbers1.filter(number => number % 2 === 0 );
+
+console.log(evenNumbers); // Output: [2, 4, 6, 8, 10]
+
+// reduce() function & it's purpose 
+/* used to reduce an array to a single value by applying a function to each element and 
+accumulating the result. Often used to perform calculations or transformations on arrays */
+const numbers2 = [1,2,3,4,,5];
+
+// we want to get the sum of the element in the array
+const sum1 = numbers2.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+console.log(sum1); // Output: 15
