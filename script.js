@@ -207,3 +207,42 @@ Promise.all([promise1, promise2]).then((message) => {
     console.log(message); // Logs: ['Promise 1 resolved', 'Promise 2 resolved']
 });
 
+/* async / await syntax is a modern approach to handle asynchronous operations. 
+Making code easier to read and maintain. */
+function fetchData() {
+    return new Promise(resolve => setTimeout(() => resolve("Data fetched"), 2000));
+}
+
+async function getData() {
+    console.log("Fetching data...");
+    const data = await fetchData();
+    console.log(data); // Outputs: "Data fetched" after 2 seconds
+}
+
+getData();
+
+// handling errors with Async/Await:
+async function getDataWithErrorHandling() {
+    try {
+        console.log("Fetching data...");
+        const data = await fetchData();
+        console.log(object);
+    } catch (error) {
+        console.error("An error occurred:", error);
+    }
+}
+
+getDataWithErrorHandling();
+
+// Async/Await with multiple independent promises (`promise.all`)
+async function fetchMultipleData() {
+    try {
+        const [result1, result2] = await Promise.all([fetchData(), fetchData()]);
+        console.log(result1, result2);
+    } catch (error) {
+        console.error("An error occurred:", error);
+    }
+}
+
+fetchMultipleData();
+
