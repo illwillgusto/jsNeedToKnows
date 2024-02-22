@@ -141,7 +141,7 @@ const yourAge = "30";
 
 // Using template literals for string interpolation 
 const greetingMessage = `Hello, my name is ${yourFirstName} ${yourLastName} and I am 
-${age} years old!`;
+${yourAge} years old!`;
 
 console.log(greetingMessage);
 
@@ -222,7 +222,7 @@ async function getData() {
 getData();
 
 // handling errors with Async/Await:
-async function getDataWithErrorHandling() {
+/* async function getDataWithErrorHandling() {
     try {
         console.log("Fetching data...");
         const data = await fetchData();
@@ -232,10 +232,10 @@ async function getDataWithErrorHandling() {
     }
 }
 
-getDataWithErrorHandling();
+getDataWithErrorHandling(); */
 
 // Async/Await with multiple independent promises (`promise.all`)
-async function fetchMultipleData() {
+/* async function fetchMultipleData() {
     try {
         const [result1, result2] = await Promise.all([fetchData(), fetchData()]);
         console.log(result1, result2);
@@ -244,7 +244,7 @@ async function fetchMultipleData() {
     }
 }
 
-fetchMultipleData();
+fetchMultipleData(); */
 
 /* Arrow functions are a concise syntax for defining functions. Shorter and `this` retains the value
 of the enclosing lexical context */
@@ -253,13 +253,13 @@ const added = (m, n) => m + n;
 console.log(add(4, 6)); // 10
 
 // Example with `this`
-function Timers() {
+/*function Timers() {
     this.second = 0;
     setInterval(() => {
         this.second++;
         console.log(this.second);
     }, 1000);
-}
+} */
 
 const timers = new Timers();
 
@@ -324,3 +324,135 @@ const numbers2 = [1,2,3,4,,5];
 const sum1 = numbers2.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
 console.log(sum1); // Output: 15
+
+/* Callback functions are passed as an argument to another function and get executed at a later time 
+or in response to an event. Callbacks enable asynchronous and event-driven programming. */
+function goodGreeting(name) {
+    console.log('Hello ' + name);
+}
+
+function processUserInput(callback) {
+    const name = prompt('Please enter your name.');
+    callback(name);
+}
+
+processUserInput(goodGreeting); // this will prompt the user to enter their name upon the page load 
+ /* greeting is a simple function that takes a name and logs a greeting to the console.
+processUserInput is a function that takes a callback function as its parameter. It gets user input, and 
+then calls the passed-in callback function with the name provided by the user.
+When processUserInput(greeting) is called, greeting function is passed as a callback. 
+This means once the user enters their name, greeting will be called with the entered name.
+This pattern is very common in JavaScript, especially in scenarios involving asynchronous operations 
+like handling events, server requests, or timers. */
+
+/* JS modules are reusable pieces of code that encapsulate related functionality. They allow for better
+organization and code reuse in larger applications. 
+they are just a file containing JS code that can be exported and the imported into other JS files*/
+// often used with build tools or transpilers for compatibility with different browsers and environments.
+
+
+/* Object destructing is a syntax that allows you to unpack values from objects into distinct variables */
+const newEmployee = {
+    userName: "Jimmy B",
+    userAge: 32,
+    userAddress: {
+        street: "123 Lane Blvd",
+        city: "Miami"
+    }
+};
+// object destructing will allow you to pull specific properties from the above object into variables 
+const {userName, userAge} = newEmployee;
+
+console.log(userName); // Outputs: Jimmy B
+console.log(userAge); // Output: 32
+// object destructing can go further with nested properties as well
+
+const {userAddress: {street, city} } = newEmployee;
+console.log(street); // 123 Lane Blvd
+console.log(city); // Miami 
+
+// JS classes are a way to define objects with the shared properties and behaviors.
+// Defining a class example 
+class studentPerson {
+    constructor(stName, stAge) {
+        this.stName = name;
+        this.stAge = age;
+    }
+
+    stGreet() {
+        console.log(`Hello, my name is ${this.stName} and I am ${this.stAge} years old`);
+    }
+}
+// studentPerson was the class with a constructor for initializing the object & method 'stGreet'.
+
+/* Inheritance is a mechanism where an object can inherit properties and methods from another object.
+good to note that classes also support inheritance. this allows for code reuse and creating hierarchical 
+relationships between objects. */
+class Student extends studentPerson {
+    constructor(stName, stAge, aCourse) {
+        super(stName, stAge); // Call the parent class constructor 
+        this.aCourse = aCourse;
+    }
+
+    study() {
+        console.log(`${this.stName} is studying ${this.aCourse}.`);
+    }
+}
+// in this example 'Student' class, 'super(stName, stAge)' is used to call the constructor of the 'studentPerson' class.
+
+const student1 = new Student("Mike", 22, "Computer Science");
+student1.stGreet(); //Output: Hello my name is Mike and I am 22 years old
+student1.study(); //Output: Mike is studying Computer Science. 
+// 'student1' is an instance of the 'Student' class which access those methods from 'Student' and the inherited 'studentPerson' class
+
+
+/* getter and setters, used to get and set the values of object properties. they provide control over property access 
+and enable data validation and encapsulation */
+
+class Individual {
+    constructor(firstName, lastName) {
+        this._firstName = firstName;
+        this._lastName = lastName;
+    }
+
+    // Getter for fullName
+    get fullName() {
+        return `${this._firstName} ${this._lastName}`;
+    }
+
+    // Setter for fullName
+    set fullName(name) {
+        const parts = name.split(' ');
+        this._firstName = parts[0];
+        this._lastName = parts[1];
+    }
+}
+
+const individual = new Individual("Daffy", "Duck");
+
+console.log(individual.fullName); //Output: Duffy Duck
+
+individual.fullName = "Mickey Mouse";
+console.log(individual.fullName); //Output: Mickey Mouse
+
+
+/* try/catch statement are used for error handling. it allows catching and handling exceptions that occur
+during the execution of a block of code */
+function divide(a, b) {
+    if (b === 0) {
+        throw new Error("Division by zero is not allowed.");
+    }
+    return a / b;
+}
+
+try {
+    const result = divide(10, 0);
+    console.log(result);
+} catch (error) {
+    console.error("Caught an error:", error.message);
+}
+/* the 'divide' function performs division but throws an error if the divisor 'b' is zero.
+the 'try' block attempts to execute the 'divide' function
+if an error occurs in the 'try' block, the error is thrown. in this case b === 0 so an error will be thrown 
+the 'catch' block catches the error and executes its code block
+*/
