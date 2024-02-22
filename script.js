@@ -456,3 +456,39 @@ the 'try' block attempts to execute the 'divide' function
 if an error occurs in the 'try' block, the error is thrown. in this case b === 0 so an error will be thrown 
 the 'catch' block catches the error and executes its code block
 */
+
+
+/* understanding forEach() functions are used to execute a provided function once for 
+each element in an array. It provides an easy way to iterate over array elements and perform 
+operations on them */
+const fruits = ['apple', 'banana', 'kiwi'];
+
+fruits.forEach(function(fruit, index) {
+    console.log(index, fruit);
+});
+
+/* the `forEach()` method takes a callback function as an argument.
+this callback function is executed for each element in the 'fruits' array
+the callback function receives two arguments: the current element 'fruits' and its index 'index' in the array.
+
+Output of this code will be:
+0 'apple'
+1 'banana'
+2 'kiwi'
+*/
+
+
+/* localStorage object allows web apps to store-key value pairs locally on the user's browser. Providing a simple way
+to store and retrieve data persistently. */
+//  Storing Data *note the limited is 5MB of data
+localStorage.setItem('username', 'Peter Pan');
+
+// Retrieving Data
+const username = localStorage.getItem('username');
+console.log(username); //Output: Peter Pan
+
+// Removing Data
+localStorage.removeItem('username');
+
+// Clearing All Data 
+localStorage.clear();
