@@ -492,3 +492,81 @@ localStorage.removeItem('username');
 
 // Clearing All Data 
 localStorage.clear();
+
+// setTimeout is used to schedule the execution time of a function in milliseconds.
+
+/* event bubbling is a mechanism that when one event is triggered on specific element will also trigger 
+the same event on all parent elements */
+
+// the fetch() function is used to make HTTP request and fetch resources from the network like APIs 
+fetch('https://api.example.com/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json(); // or response.text() if the response is not in JSON format
+  })
+  .then(data => {
+    console.log(data); // Process and use the data
+  })
+  .catch(error => {
+    console.error('There has been a problem with your fetch operation:', error);
+  });
+
+  /*
+  In this example:
+
+-The fetch function is called with a URL to the API.
+-The first .then() checks if the response is OK (status in the range 200-299). If not, it throws an error.
+-Then, it converts the response to JSON using response.json(). 
+If the data is not JSON, you might use response.text() or another method depending on the response type.
+-The second .then() receives the parsed data and you can process or use it as needed.
+-The .catch() is used to catch any errors that occur during the fetch or processing steps.
+*/
+
+// Object.keys() function is used to take all the keys of an object and return them as an array.
+
+const animal = {
+    name: 'Tiger',
+    weight: 225,
+    habitat: 'Jungle'
+};
+
+const keys = Object.keys(animal);
+console.log(animal); // Output: ['name', 'weight', 'habitat']
+
+/* what's the purpose of the parentNode property? used to get the parent node of 
+a specified element in the DOM. It's a read-only property that returns the parent of 
+the specified node in the DOM tree.
+
+html structure:
+<div id="parent">
+    <p id="child">Hello, world!</p>
+</div>
+
+you want to change the background color of the parent <div> when a script is ran.
+here's how you can use 'parentNode' in JS */
+
+// Get the child element 
+const childElement = document.getElementById('child');
+
+//use parentNode to access and modify the parent element 
+childElement.parentNode.style.backgroundColor = 'lightblue';
+
+/* in this example, when the JS code runs, it will change the bg color of the <div> */
+
+// bind() method is used to create a new function with a specified 'this' value and initial arguments
+const user = {
+    name: "Alice",
+    greet() {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+};
+
+const greet = user.greet;
+greet(); // Output will be incorrect because 'this' is not bound to 'user'
+
+// to fix this, you can use 'bind()'
+const greetBound = user.greet.bind(user);
+greetBound(); // Correct output: "Hello, my name is Alice"
+
