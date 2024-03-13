@@ -570,3 +570,48 @@ greet(); // Output will be incorrect because 'this' is not bound to 'user'
 const greetBound = user.greet.bind(user);
 greetBound(); // Correct output: "Hello, my name is Alice"
 
+/* understanding the call() method which is used to invoke a function with a specified this value and arguments 
+provided individaully. It allows borrowing methods from other objects and explicit invocation of functions. */
+// Example: suppose we have two objects, 'person' and 'employee', and a function that logs a greeting message:
+
+function greet(greeting, message) {
+    console.log(greeting + ', ' + this.name + ', ' + message);
+}
+
+const person = {
+    name: 'John'
+};
+
+const employee = {
+    name: 'Jane'
+};
+
+// Using call() to invoke greet with 'this' set to person
+greet.call(person, 'Hello', 'How are you today?'); // Hello, John, how are you today?
+
+// Using call() to invoke greet with 'this' set to employee 
+greet.call(employee, 'Hi', 'Welcome to the company!'); // Hi, Jane, welcome to the company!
+
+// the apply() method is similar to the call() method but with arrays or array-like object. Instead of arguments individually, apply() takes arguments as an array.
+// consider a scenario where we have a function that adds multiple numbers, and we want to pass an array of number to this function:
+function sum() {
+    let total = 0;
+    for(let i = 0; i < arguments.length; i++) {
+        total += arguments[i];
+    }
+    return total;
+}
+
+const numbers = [1, 2, 3, 4, 5];
+
+// Using apply() to pass an array of numbers
+const result = sum.apply(null, numbers);
+
+console.log(result); //Outputs: 15
+
+/* We have a 'sum' function that calculates the total of all arguments passed to it.
+We use 'apply()' to call the 'sum' function, passing 'null' as the 'this' argument (since 'this'
+is not used in the function), and 'numbers as the array of arguments.
+The 'sum' function then adds up all he numbers in the array. */
+
+
