@@ -615,3 +615,12 @@ is not used in the function), and 'numbers as the array of arguments.
 The 'sum' function then adds up all he numbers in the array. */
 
 
+/* understanding the padStart() method, which pads the current string with another string
+(multiple times, if needed) until the resulting string reaches the given length 
+Here's an example: */
+const numbers = [1, 12, 123];
+
+const paddedNumbers = numbers.map(num => String(num).padStart(3, '0'));
+// ensures each string has a lenght of 3, and if the string is shorter than 3 then it will add '0's at the start 
+
+console.log(paddedNumbers); // Output: ["001", "012", "123"]
