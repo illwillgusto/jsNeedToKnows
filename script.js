@@ -624,3 +624,18 @@ const paddedNumbers = numbers.map(num => String(num).padStart(3, '0'));
 // ensures each string has a lenght of 3, and if the string is shorter than 3 then it will add '0's at the start 
 
 console.log(paddedNumbers); // Output: ["001", "012", "123"]
+
+// note padEnd() method works the same way just starts at the end of a string 
+
+// charAt() method is used to retrieve the character at a specified index in a string.
+
+// charCodeAt() method is used to retrieve the Unicode value of the character at a specified index in a string.
+
+// String.fromCharCode() method is used to create a string from a sequence of Unicode values.
+// Example: Suppose you have Unicode values for the characters 'H','e','l','l','o'
+// Unicode values for 'H', 'e', 'l', 'l', 'o'
+const charCodes = [72, 101, 108, 108, 111];
+
+const str = String.fromCharCode(...charCodes);
+
+console.log(str); // Output: "Hello"
