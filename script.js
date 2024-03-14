@@ -672,6 +672,26 @@ console.log(jsonString);
 To deserialize you would use the JSON.parse() method which will convert the JSON string to a JavaScript Object
 */
 
+/* the encodeURIComponent() function in JavaScript is uded to encode a URI component by
+escaping characters that are not valid in a URL part. This function is very useful when 
+you need to encode query strings or form parameters to ensure they are properly formatted in a URL. */
+// Example: Encoding a Query String, you have a query string w/ special characters or spaces that need to append to a URL:
+const queryParams = {
+    name: "Jane Doe",
+    message: "Hello! How are you?"
+};
+
+const encodeURL = Object.keys(queryParams).map(key =>
+    encodeURIComponent(key) + '=' + encodeURIComponent(queryParams[key])
+).join('&');
+
+const url = 'https://example.com/search?' + encodeURL;
+
+console.log(url);
+
+// https://example.com/search?name=Jane%20Doe&message=Hello%21%20How%20are%20you%3F
+
+// the decodeURIComponent() function would decode the URL back to the state we saw before 
 
 
 
