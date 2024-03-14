@@ -639,3 +639,39 @@ const charCodes = [72, 101, 108, 108, 111];
 const str = String.fromCharCode(...charCodes);
 
 console.log(str); // Output: "Hello"
+
+/* We have an array 'charCodes' containing the Unicode values for each character in the string
+"Hello"
+'String.fromCharCode()' is called with the spread operator(...) to pass all elements of the array
+as individual arguments. 
+The method converts these Unicode values back to their respective characters, forming the 
+string "Hello" */
+
+
+/* JSON.stringify() method converts a JavaScript object or value to a JSON string.
+this method can be very useful when you need to serialize JavaScript data structures into 
+a format that can be easily stored or transmitted to a web server */
+// Example: Converting an Object to a JSON String 
+const person = {
+    name: "John Doe",
+    age: 30,
+    address: {
+        street: "123 Main St",
+        city: "Anytown"
+    },
+    hobbies: ["reading", "cycling"]
+};
+
+const jsonString = JSON.stringify(person);
+
+console.log(jsonString);
+
+/* Output: json file 
+{"name":"John Doe", "age":30,"address":{"street":"123 Main St", "city":"Anytown"},"hobbies":["reading", "cycling"]}
+
+To deserialize you would use the JSON.parse() method which will convert the JSON string to a JavaScript Object
+*/
+
+
+
+
