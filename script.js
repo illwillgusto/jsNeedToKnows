@@ -693,5 +693,30 @@ console.log(url);
 
 // the decodeURIComponent() function would decode the URL back to the state we saw before 
 
+/* Currying in JavaScript is a technique of translating a function that takes multiple arguments into 
+a sequence of functions that each take a single argument. a concept that allows you to create a chain of 
+functions that gradually receive the arguments needed to run the main function. 
+How Currying Works:
+1. Transform Function 
+2. Delayed Execution 
+*/
 
+function multiply(a) {
+    return function(b) {
+        return a * b;
+    };
+}
+
+const multiplyByTwo = multiply(2);
+const result = multiplyByTwo(3);
+
+console.log(result); // Outputs: 6
+
+/* 
+In this example:
+-multiply is a curried function. It takes one argument a and returns another function.
+-The returned function takes the next argument b and finally computes the product a * b.
+-multiplyByTwo is a partially applied function that keeps 2 as a multiplier.
+-result holds the outcome of multiplyByTwo(3), effectively computing 2 * 3.
+*/
 
