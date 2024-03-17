@@ -759,5 +759,13 @@ returns a function as its results. */
 /* Good to know BOM (Browser Object Model), the context of web development, refers to the objects provided 
 by web browser that allow interaction with the browser window and the environment in which the web pages are displayed */
 
-/* Implicit Type Coercion examples below 
+//  Implicit Type Coercion examples below 
+// Coercion to a string.
+ console.log('5' + 3); // '53', number 3 is converted to a string 
+ console.log('5' + true); // '5true', boolean true is converted to a string 
+
+//  Coercion to a number.
+ console.log('5' - 3); // 2, string '5' is converted to a number 
+ console.log('4' * '2'); // 8, both strings are converted to numbers, this is due to the multiply operator 
+ console.log('5' * false); // 0, string '5' is converted to a number and false is seen as 0, again this has to do with the multiply operator 
 
