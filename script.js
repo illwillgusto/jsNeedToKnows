@@ -720,3 +720,34 @@ In this example:
 -result holds the outcome of multiplyByTwo(3), effectively computing 2 * 3.
 */
 
+// Understanding and know the 7 types of errors are important when working with JavaScript, I've listed them below 
+
+/* 1. Syntax Errors: These occur when the code written does not follow the rues and syntax of the language. It's 
+like a grammatical error in a programming context. These errors prevent the code from being successfully compiled or interpreted.
+Example: missing a bracket or a comma. */
+if (a = 3 { console.log(a); } // SyntaxError: missing ) after condition 
+
+/* 2. Reference Errors: These occur when code refers to variable that is not in space or doesn't exist. 
+Example: Trying to use a variable that hasn't been declared. */
+console.log(x); // ReferenceError: x is not defined 
+
+/* 3. Type Errors: These happen when an operation is performed on a value of an inappropriate type, like 
+trying to call something that's not a function or accessing properties on something that's not an object.
+Exmaple: Trying to call a non-function or accessing a property on 'undefined' */
+const num = null;
+num.split(','); // TypeError: num.split is not a function
+
+/* 4. Range Errors: These occur when a value is not within an expected range or set of values.
+Example: Creating an array with an invalid length. */
+new Array(-1); // RangeError: Invalid array length 
+
+/* 5. URI (Uniform Resource Identifier) Errors: These are thrown when global URI handling functions are used incorrectly
+Example: Passing an invalid URI to 'encodeURI' or 'decodeURI' */
+decodeURI('%'); // URIError: URI malformed 
+
+/* 6. Evaluation Errors (EvalError): These are now rare and mostly irrelevant, as 'EvalError' is no
+longer thrown in modern JavaScript environments. Historically, they were related to the improper
+use of the 'eval()' function. */
+
+/* 7. Custom Errors: In addition to built-in error types, Javascript allows the creation of custom error
+types by extending the 'Error' class. This can be useful for creating application-specific error handling. */
