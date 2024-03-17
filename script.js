@@ -755,6 +755,9 @@ types by extending the 'Error' class. This can be useful for creating applicatio
 
 /* Knowing Higher-order functions, which is a function that either takes one or more functions as arguments, or 
 returns a function as its results. */
-// Example 1: Array.prototype.map(), map() takes a function as an argument and returns a new array, applying the function to each element of the original array
-const numbers = [1, 2, 3, 4];
-const squares = numbers.map(number => number * number); //Output [1, 4, 9, 16]
+
+/* Good to know BOM (Browser Object Model), the context of web development, refers to the objects provided 
+by web browser that allow interaction with the browser window and the environment in which the web pages are displayed */
+
+/* Implicit Type Coercion examples below 
+
