@@ -56,7 +56,22 @@ const tasks = [
   );
   
 
+
 // slice & splice method
+// Slice Method Example:
+const fruits = ['apples', 'bananas', 'orange', 'mangos', 'kiwi'];
+
+const citrusFruits = fruits.slice(2, 4); // this tells us we want to take the index between 2 & 4 but not including index 4
+
+console.log(citrusFruits); // ['orange', 'mango']
+
+// Splice Method Example: 
+const pets = ['dog', 'cat', 'rabbit', 'fish'];
+
+pets.splice(2, 1, 'hamster', 'parrot'); // Removes 'rabbit' and adds 'hamster', 'parrot'
+
+console.log(pets); // ['dog', 'cat', 'hamster', 'parrot']
+
 
 // concat method 
 
