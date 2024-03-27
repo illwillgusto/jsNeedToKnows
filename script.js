@@ -769,3 +769,20 @@ by web browser that allow interaction with the browser window and the environmen
  console.log('4' * '2'); // 8, both strings are converted to numbers, this is due to the multiply operator 
  console.log('5' * false); // 0, string '5' is converted to a number and false is seen as 0, again this has to do with the multiply operator 
 
+
+
+//  The examples below and terms are below this line because these are need to know and have a full understanding before diving into React
+
+// map & filter method 
+
+// slice & splice method
+
+// concat method 
+
+// find & findIndex method
+
+// destructing assignment 
+
+// rest parameter & spread operator 
+
+// promises, which are used to handle asynchronous operations 
