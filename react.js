@@ -206,6 +206,38 @@ componentDidMount() {
 
 
 // find & findIndex method
+// find method returns the value of the first element in the provided array that satisfies the provided testing function
+// find Method Example: Finding an Object in an Array 
+const books = [
+    { id: 1, title: '1984', author: 'George Orwell' },
+    { id: 2, title: 'The Lord of the Rings', author: 'J.R.R. Tolkien' },
+    { id: 3, title: 'To Kill a Mockingbird', author: 'Harper Lee' }
+  ];
+  
+  const findBook = title => books.find(book => book.title === title);
+  
+  console.log(findBook('1984')); // { id: 1, title: '1984', author: 'George Orwell' }
+
+// Example 2:
+const testNumbers = [3, 7, 11, 9, 12];
+
+const firstGreaterThanTen = testNumbers.find(testNumbers => testNumbers > 10);
+
+console.log(firstGreaterThanTen); // 11
+
+// findIndex method returns the index of the first element in the array that satisfies the provided testing function.
+// findIndex example: finding the index of an object array
+const employees = [
+    { id: 101, name: 'Jane' },
+    { id: 102, name: 'John' },
+    { id: 103, name: 'Chris' }
+  ];
+  
+  const findEmployeeIndexById = id => employees.findIndex(employee => employee.id === id);
+  
+  console.log(findEmployeeIndexById(102)); // 1
+  
+
 
 // destructing assignment 
 
