@@ -140,7 +140,25 @@ class TaskList extends React.Component {
 mutated directly */  
 
 
-// concat method 
+// concat method, used to merge two or more arrays, this method doesn't change the existing arrays but instead returns a new array
+// Concat Method Example:
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+
+const combineArray = array1.concat(array2); // concat merges array1 and array2 into combineArray
+
+console.log(combineArray); // [1, 2, 3, 4, 5, 6]
+
+// Merging Arrays with Other Values 
+const array3 = [1, 2];
+const extraElement = 3;
+const array4 = [4, 5];
+
+const combinedArray = array3.concat(extraElement, array4);
+
+console.log(combinedArray); // [1, 2, 3, 4, 5]
+
+
 
 // find & findIndex method
 
