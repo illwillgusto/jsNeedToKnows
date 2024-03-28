@@ -386,5 +386,23 @@ class UserProfile extends React.Component {
 
 
 // rest parameter & spread operator 
+/* Rest parameter syntax allows a function to accept an indefinite number of arguments as an array, 
+providing a way to handle functions paras more flexibly */
+// Example 1: Sum Function, a function that takes any number of arguments and returns their sum. 
+function sum(...numbers) {
+    return numbers.reduce((acc, current) => acc + current, 0);
+  }
+  
+  console.log(sum(1, 2)); // 3
+  console.log(sum(1, 2, 3, 4, 5)); // 15
+// in this example, '...numbers' is a rest parameter that collects all passed arguments into an array named 'numbers'
+
+// Example 2: Collecting Remaining Arguments, gathering the remaining arguments passed to a function into an array
+function greet(firstName, lastName, ...titles) {
+    console.log(`Hello, ${titles.join(' ')} ${firstName} ${lastName}`);
+  }
+  
+  greet('John', 'Doe', 'Dr.', 'Professor'); // "Hello, Dr. Professor John Doe"
+// here, '...titles' collects all arguments beyond the first two into an array 'titles'  
 
 // promises, which are used to handle asynchronous operations 
