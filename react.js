@@ -404,5 +404,34 @@ function greet(firstName, lastName, ...titles) {
   
   greet('John', 'Doe', 'Dr.', 'Professor'); // "Hello, Dr. Professor John Doe"
 // here, '...titles' collects all arguments beyond the first two into an array 'titles'  
+/* Spread Operator allows an iterable such as an array or string to be expanded in places where zero or more arguments
+(for function calls) or elements(for array literals) are expected. It can also be used to spread object properties.
+ */
+// Example 1: Combining Arrays or concatenating multiple arrays.
+const goodFruits = ['apple', 'banana', 'cherry'];
+const berries = ['strawberry', 'blueberry'];
+
+const combined = [...goodFruits, ...berries];
+
+console.log(combined); // ['apple', 'banana', 'cherry', 'strawberry', 'blueberry']
+// the spread operator '...' is used to combine goodFruits and berries into a new array combined
+
+// Example 2: Closing Objects, creating a copy of an object w/ additional properties 
+const original = { a: 1, b: 2 };
+const copyWithMore = { ...original, c: 3 };
+
+console.log(copyWithMore); // { a: 1, b: 2, c: 3 }
+// this example shows how the spread operator can be used to clone 'original' and add a new property 'c'
+
+// Example 3: Function Arguments, spreading an array into individual arguments in a function call. 
+const numbers = [1, 2, 3];
+
+function multiply(a, b, c) {
+  return a * b * c;
+}
+
+console.log(multiply(...numbers)); // 6
+// in this '...numbers' spreads the array into individual arguments for the 'multiply' function
+
 
 // promises, which are used to handle asynchronous operations 
